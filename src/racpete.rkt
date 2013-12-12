@@ -96,7 +96,7 @@ Handles incomming user irc commands
       [(string-starts-with? msg ".kick ") (act-to-channel
                                             (string-append "kicks "
                                                            (substring msg 6)))]
-      [(string-starts-with? msg ".eval ") (write-to-channel (eval-string (substring msg 6)))]
+      [(string-starts-with? msg ".e ") (write-to-channel (eval-string (substring msg 3)))]
       [else (log nick msg)])))
 
 #|

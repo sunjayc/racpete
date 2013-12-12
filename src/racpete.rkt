@@ -5,6 +5,7 @@
   "commands/ycombinator.rkt"
   "commands/web-queries.rkt"
   "commands/kwanzaa.rkt"
+  "commands/eval.rkt"
   "config.rkt"
   "util/connection.rkt"
   "util/string-utils.rkt"
@@ -95,6 +96,7 @@ Handles incomming user irc commands
       [(string-starts-with? msg ".kick ") (act-to-channel
                                             (string-append "kicks "
                                                            (substring msg 6)))]
+      [(string-starts-with? msg ".eval ") (write-to-channel (eval-string (substring msg 6)))]
       [else (log nick msg)])))
 
 #|
